@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Проект X – Детоксикация код-ревью</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Проект X</h1>
+            <p>Интеллектуальное преобразование рабочих комментариев</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="input-text">Исходный комментарий:</label>
+                <textarea id="input-text" placeholder="Например: You broke everything again!"></textarea>
+                
+                <div class="controls">
+                    <label for="tone-select">Тональность:</label>
+                    <select id="tone-select">
+                        <option value="neutral">Строгий нейтральный</option>
+                        <option value="mentor">Менторский / Развивающий</option>
+                        <option value="concise">Краткий лаконичный</option>
+                    </select>
+                    
+                    <button id="process-btn">Преобразовать</button>
+                </div>
+            </div>
+
+            <div class="output-section" id="output-section" style="display: none;">
+                <h2>Результат</h2>
+                <div class="result-box" id="result-text"></div>
+                
+                <div class="inspector" id="inspector-box">
+                    <span id="inspector-metric">Было: 78% (Пассивная агрессия) -> Стало: 4% (Нейтрально)</span>
+                </div>
+
+                <div class="feedback">
+                    <span>Оцените результат:</span>
+                    <button class="feedback-btn" data-vote="up">👍</button>
+                    <button class="feedback-btn" data-vote="down">👎</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
