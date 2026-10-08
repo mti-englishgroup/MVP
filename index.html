@@ -2,57 +2,87 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Project X – MTI Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project X – Enterprise Code Review Detox Platform</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="top-banner">
-        <div class="brand">
-            <div class="brand-logo">x</div>
-            <div class="brand-text">
+    <header class="enterprise-banner" role="banner">
+        <div class="brand-cluster">
+            <div class="brand-emblem" aria-hidden="true">x</div>
+            <div class="brand-metadata">
                 <h1>Project X</h1>
-                <span>MTI PROJECT</span>
+                <span class="sub-label">MTI ENTERPRISE ML PLATFORM</span>
             </div>
         </div>
-        <div class="leopard-pattern"></div>
+        <div class="leopard-pattern-layer" aria-hidden="true"></div>
     </header>
 
-    <main class="main-container">
-        <!-- Левая колонка: Ввод -->
-        <div class="column">
-            <div class="card-wrapper">
-                <textarea id="input-text" placeholder="Введите исходный комментарий..."></textarea>
+    <main class="workspace-grid" role="main">
+        <!-- Input Terminal Segment -->
+        <section class="terminal-pane input-segment">
+            <div class="pane-surface input-surface">
+                <div class="surface-header">
+                    <span class="segment-title">ВХОДНОЙ ПОТОК КОММЕНТАРИЕВ</span>
+                    <span class="status-indicator" id="api-status">API: Mock Mode</span>
+                </div>
+                <textarea id="input-text" placeholder="Введите исходный комментарий или фрагмент код-ревью для анализа..." aria-label="Исходный комментарий" maxlength="2000"></textarea>
+                <div class="input-footer">
+                    <span class="char-counter" id="char-counter">0 / 2000</span>
+                </div>
             </div>
-            <div class="label-title">Исходный комментарий</div>
+            <div class="label-anchor">Исходный комментарий</div>
 
-            <div class="controls-panel">
-                <select id="tone-select">
-                    <option value="neutral">Строгий нейтральный</option>
-                    <option value="mentor">Менторский / Развивающий</option>
-                    <option value="concise">Краткий лаконичный</option>
-                </select>
-                <button id="process-btn">Преобразовать</button>
+            <div class="control-matrix">
+                <div class="select-wrapper">
+                    <select id="tone-select" aria-label="Выбор тональности">
+                        <option value="neutral">Строгий нейтральный (Default)</option>
+                        <option value="mentor">Менторский / Развивающий</option>
+                        <option value="concise">Краткий лаконичный</option>
+                    </select>
+                </div>
+                <button id="process-btn" class="action-btn" type="button">
+                    <span class="btn-text">Преобразовать</span>
+                    <span class="spinner" id="btn-spinner" hidden></span>
+                </button>
             </div>
-        </div>
+        </section>
 
-        <!-- Правая колонка: Результат -->
-        <div class="column">
-            <div class="card-wrapper output-wrapper" id="output-section">
-                <div class="result-box" id="result-text">Здесь появится преобразованный текст...</div>
+        <!-- Output Terminal Segment -->
+        <section class="terminal-pane output-segment">
+            <div class="pane-surface output-surface" id="output-section">
+                <div class="surface-header">
+                    <span class="segment-title">РЕЗУЛЬТАТ ОБРАБОТКИ ЯДРА</span>
+                    <span class="confidence-badge" id="confidence-badge">Confidence: –</span>
+                </div>
+                <div class="result-box" id="result-text" role="region" aria-live="polite">
+                    Ожидание входящего потока данных для анализа модели...
+                </div>
                 
-                <div class="inspector" id="inspector-box">
-                    <span id="inspector-metric">Инспектор токсичности: ожидает анализа</span>
+                <div class="inspector-telemetry" id="inspector-box">
+                    <div class="metric-row">
+                        <span class="metric-label">Инспектор токсичности:</span>
+                        <span id="inspector-metric" class="metric-value">Ожидание анализа сессии</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
+                    </div>
                 </div>
 
-                <div class="feedback">
-                    <span>Оценить:</span>
-                    <button class="feedback-btn" data-vote="up">👍</button>
-                    <button class="feedback-btn" data-vote="down">👎</button>
+                <div class="telemetry-footer">
+                    <div class="feedback-group">
+                        <span class="feedback-prompt">Верификация результата:</span>
+                        <button class="feedback-btn" data-vote="up" title="Корректно">👍</button>
+                        <button class="feedback-btn" data-vote="down" title="Требует доработки">👎</button>
+                    </div>
+                    <div class="session-info">JWT: Verified</div>
                 </div>
             </div>
-            <div class="label-title">Результат</div>
-        </div>
+            <div class="label-anchor">Результат</div>
+        </section>
     </main>
+
+    <div id="toast-container" class="toast-container" aria-live="assertive"></div>
 
     <script src="app.js"></script>
 </body>
