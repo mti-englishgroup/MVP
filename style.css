@@ -32,7 +32,7 @@ body {
 .enterprise-banner {
     width: 100%;
     height: 96px;
-    background-color: var(--accent-brand);
+    background-color: #b88654;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,25 +75,37 @@ body {
 
 .sub-label {
     font-size: 10px;
-    color: #333;
+    color: #222;
     letter-spacing: 1.5px;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-/* Leopard Pattern Matrix */
+/* Authentic Leopard Print Pattern (Розетки и пятна хищника) */
 .leopard-pattern-layer {
-    width: 65%;
+    width: 70%;
     height: 100%;
     background-image: 
-        radial-gradient(ellipse at 20% 30%, #3a2312 8%, transparent 9%),
-        radial-gradient(ellipse at 70% 60%, #3a2312 10%, transparent 11%),
-        radial-gradient(ellipse at 40% 80%, #3a2312 7%, transparent 8%),
-        radial-gradient(ellipse at 85% 20%, #3a2312 9%, transparent 10%),
-        radial-gradient(ellipse at 10% 70%, #3a2312 6%, transparent 7%),
-        radial-gradient(ellipse at 60% 30%, #3a2312 8%, transparent 9%);
-    background-size: 60px 60px;
-    opacity: 0.85;
+        /* Крупные разорванные розетки */
+        radial-gradient(ellipse 22px 14px at 15% 35%, #23120b 70%, transparent 72%),
+        radial-gradient(ellipse 12px 8px at 18% 28%, transparent 50%, #23120b 52%, #23120b 75%, transparent 77%),
+        
+        radial-gradient(ellipse 26px 16px at 55% 65%, #23120b 70%, transparent 72%),
+        radial-gradient(ellipse 14px 9px at 52% 58%, transparent 50%, #23120b 52%, #23120b 75%, transparent 77%),
+
+        radial-gradient(ellipse 20px 12px at 85% 30%, #23120b 70%, transparent 72%),
+        radial-gradient(ellipse 10px 7px at 88% 36%, transparent 50%, #23120b 52%, #23120b 75%, transparent 77%),
+
+        /* Дополнительные мелкие полумесяцы и пятна для естественности */
+        radial-gradient(circle 8px at 35% 75%, #23120b 60%, transparent 63%),
+        radial-gradient(circle 6px at 72% 20%, #23120b 60%, transparent 63%),
+        radial-gradient(ellipse 14px 7px at 40% 20%, #23120b 65%, transparent 68%),
+        radial-gradient(circle 7px at 5% 80%, #23120b 60%, transparent 63%),
+        radial-gradient(ellipse 18px 10px at 95% 75%, #23120b 65%, transparent 68%),
+        radial-gradient(circle 9px at 25% 50%, #23120b 60%, transparent 63%);
+    
+    background-size: 120px 96px;
+    opacity: 0.92;
 }
 
 /* Workspace Grid */
