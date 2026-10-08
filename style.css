@@ -1,86 +1,218 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
-    color: #333;
-    margin: 0;
-    padding: 20px;
+    background-color: #161616;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+/* Верхняя плашка */
+.top-banner {
+    width: 100%;
+    height: 90px;
+    background-color: #c89b6b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-header h1 {
-    margin-top: 0;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 24px;
+    z-index: 2;
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+    background-color: #111;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.brand-text h1 {
+    font-size: 18px;
     color: #111;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
-.input-section, .output-section {
-    margin-bottom: 20px;
+.brand-text span {
+    font-size: 10px;
+    color: #333;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* Леопардовый паттерн */
+.leopard-pattern {
+    width: 60%;
+    height: 100%;
+    background-image: 
+        radial-gradient(ellipse at 20% 30%, #3a2312 8%, transparent 9%),
+        radial-gradient(ellipse at 70% 60%, #3a2312 10%, transparent 11%),
+        radial-gradient(ellipse at 40% 80%, #3a2312 7%, transparent 8%),
+        radial-gradient(ellipse at 85% 20%, #3a2312 9%, transparent 10%),
+        radial-gradient(ellipse at 10% 70%, #3a2312 6%, transparent 7%),
+        radial-gradient(ellipse at 60% 30%, #3a2312 8%, transparent 9%);
+    background-size: 60px 60px;
+    opacity: 0.85;
+}
+
+/* Основной контейнер */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Карточки под блоки ввода/вывода */
+.card-wrapper {
+    background-color: #d9d9d9;
+    border-radius: 20px;
+    padding: 24px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
 textarea {
     width: 100%;
-    height: 100px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    box-sizing: border-box;
+    height: 100%;
+    background: transparent;
+    border: none;
+    resize: none;
+    font-size: 16px;
+    color: #111;
+    outline: none;
+    font-family: inherit;
 }
 
-.controls {
+textarea::placeholder {
+    color: #777;
+}
+
+.label-title {
+    color: #d4a373;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* Панель управления */
+.controls-panel {
     display: flex;
-    gap: 10px;
-    align-items: center;
+    gap: 12px;
     margin-top: 10px;
 }
 
-select, button {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #fff;
-    cursor: pointer;
+select {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #444;
+    background-color: #262626;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
 }
 
 button#process-btn {
-    background: #0066cc;
-    color: #fff;
+    background-color: #d4a373;
+    color: #111;
     border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
 button#process-btn:hover {
-    background: #0052a3;
+    background-color: #c08d5e;
+}
+
+/* Стили блока результата */
+.output-wrapper {
+    background-color: #d9d9d9;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .result-box {
-    background: #f8f9fa;
-    padding: 15px;
-    border-left: 4px solid #0066cc;
-    border-radius: 4px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #222;
 }
 
 .inspector {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 15px;
+    font-size: 13px;
+    color: #333;
+    background: rgba(0,0,0,0.06);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 500;
 }
 
 .feedback {
     display: flex;
-    gap: 10px;
     align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #333;
 }
 
 .feedback-btn {
-    background: none;
-    border: 1px solid #ddd;
-    font-size: 16px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.feedback-btn:hover {
+    background: #eee;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
 }
